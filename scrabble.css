@@ -1,0 +1,11 @@
+
+.droppable {
+    display: inline-block ; 
+    text-align: center;
+    
+
+}
+
+.draggable {
+	display: inline-block ;
+}
