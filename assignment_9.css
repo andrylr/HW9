@@ -1,0 +1,102 @@
+/* File:  /~alora/assignment_8.css
+  Andry Lora, UMass Lowell Computer Science, Andrylr@gmail.com
+  Copyright (c) 2015 by Andry Lora.  All rights reserved.  
+  File created:October 14,2015
+    updated by Andry Lora on November 19, 2015
+ */
+
+
+/*For table,standard cell, and table header it creates a border around them changes the 
+font size and type*/
+table, th, td {
+    border: 1px solid black;
+    font-size: 20px;
+    /*font-family:"cursive",Zapf Chancery, cursive;*/
+
+}
+
+/*Centers the table*/
+table{
+	 margin-left:auto; 
+    margin-right:auto;
+}
+
+/*gives the cells more padding and with this is creates more space between the 
+values so they*/
+td, th { 
+    padding: 5px;
+}
+/*Centers the form and changes its fonts*/
+#valueinput{
+	text-align: center;
+	/*font-family:"cursive",Zapf Chancery, cursive;*/
+}
+
+/*Sets the background of the table headers to black*/
+th{
+background-color: black;
+color:white;
+}
+
+/*makes the background a blue color*/
+body {
+     background-color:#E6E6FA;
+ }
+/*Aligns the header text into the middle while giving it a 4 pixel padding
+and changing the font to a font from the cursive family */
+#header {
+    text-align:center;
+    padding:4px;
+    /*font-family:"cursive",Zapf Chancery, cursive;*/
+}
+
+/*gives the index a 4 pixel padding while pushing it to the left */
+#index { 
+    padding:4px;
+    float:left;
+}
+
+  /*The color of the links were originally a dark blue when not visited this 
+    makes it white instead since my background is a grey color.*/   
+a:link {
+    color: black;
+    /*font-family:"cursive",Zapf Chancery, cursive;*/
+}
+
+/*the color for a visited link is a purple color and this style changes that to
+a light blue color*/
+a:visited {
+    color:black;
+}
+
+/*grabs the paragraph in instruction div centers and changes the font type*/
+#instructions{
+text-align: center;
+ /*font-family:"cursive",Zapf Chancery, cursive;*/
+}
+
+/*Centers the button*/
+#clicking{
+	text-align: center;
+}
+
+
+/*The styling for the error messages which is red and bold*/
+label.error {
+  color: red ;
+  font-weight: bold ;
+}
+
+/*Removes the bullet styling of of the list which the errors are in and centers it*/
+li {
+  list-style-type: none;
+  text-align: center;
+
+/*For this when there is an input error it creates a red solid border around the input box*/
+}
+input.error{
+  border-style: solid;
+    border-width: 3px;
+    border-color: red;
+}
+

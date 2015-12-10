@@ -3,6 +3,17 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="assignment_9.css">
+    <title>Assignment 9</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--  File:  http://andrylr.github.io/HW9/hw9.html
+    91.461 Assignment:9
+    Andry Lora, UMass Lowell Computer Science, Andrylr@gmail.com
+    Copyright (c) 2015 by Andry Lora.  All rights reserved.  
+    File created:October 14,2015
+    updated by Andry Lora on November December 09, 2015
+        -->
 
         
         <title>
@@ -13,20 +24,24 @@
         <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
         <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
-        <script src="rules.js"></script>
+        <script src="assignment_9.js"></script>
+
         <!--<script src="wordcheck.js"></script> -->
         
 
     </head>
 
     <body>
+        <!--Create an id call index which will be used to navigate back to the 
+        index page-->
+        <div id="index"><a href="http://weblab.cs.uml.edu/~alora/index.html">Home</a></div>
+
+        <!--Created a div for the header to change the text or move as wanted in the css file -->
+        <div id="header"><h1>91.461 Implementing a Bit of Scrabble with Drag-and-Drop</h1></div>
 
         <div id="container">
             <div id="content">
                 <div class="post">
-
-                    <h1>Scrabble Mini Game</h1>
-
                     <!-- board with tiles -->
 
                     <div id ="board">
@@ -68,25 +83,34 @@
                     </div>
 
                     <br>
-                    <br>
+                   
                     
                     <!-- empty rack-- tiles get generated from document ready function -->
-                    <div class="container" id="rack">
+                    <div class="rack" id="rack">
                     </div>
 
 
                               
                     
                     <div id="wordBox">
-    <br>
+                    <br>
     <label>Word:</label>
     <label id="word"></label>
     <br>
+    <!-- This is the score which is edited in the javascript -->
     <div id="score"></div>
     <br>
+    <!--This submit button  is where we check if it is an actual word -->
     <button id="submit_button">Submit</button>
-    <button onClick="Deal()">Shuffle</button>
+
+    <!-- When we hit this button it deals out the tiles but it resets everything such as
+the tiles score,what hand we are on-->
+    <button onClick="Deal()">Reset</button>
+
+    <!--This button refills the the hand by decrementing the number of tiles in your hand once it is placed on the board and then it checks if your hand is missing a tile and gives you one -->
     <button onClick="Refill()">Refill Hand</button>
+
+    <!--This button is similar to that of the Reset button but it does not clear the current score and continues with it-->
     <button onClick="Continue()">Next Turn Keep Score</button>
 </div>
 <div id="message"></div

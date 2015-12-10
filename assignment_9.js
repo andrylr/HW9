@@ -1,8 +1,14 @@
 
-
-
-/////////////////////////////////////////////////////////////////////////////
+/*File:  http://andrylr.github.io/HW9/assignment_8.js
+    91.461 Assignment:8
+    Andry Lora, UMass Lowell Computer Science, Andrylr@gmail.com
+    Copyright (c) 2015 by Andry Lora.  All rights reserved.  
+    File created:October 14,2015
+    updated by Andry Lora on December 09, 2015
+    */
 //Sets up drag and drop interface on pageload
+
+
 var dictionary = {};
 
 //On user submit check word is valid
@@ -16,7 +22,8 @@ function submit(event)
     }
 }
 
-///////////////////////////////////////////////////////////////////////////////
+
+
 $(document).ready(function ()
 {
      Deal();
@@ -48,12 +55,13 @@ $(document).ready(function ()
     })();
 });
 
-///////////////////////////////////////////////////////////////////////////////
+
 
 //global vairables
 
-var FirstDeal = 0; //is it the first deal? 0=yes, 1=no
-var Score = 0;  //score global
+var FirstDeal = 0; 
+var Score = 0;  
+var total_tiles = 100;
 
 
 //alphabet array and the corresponding array of values in alphabetical order
@@ -62,12 +70,23 @@ var values = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4,
 var amount = [9, 2, 2, 4, 12, 2, 3, 2, 9, 1, 1, 4, 2, 6, 8, 2, 1, 6, 4, 6, 4, 2, 2, 1, 2, 1, 2];
 var amount2 = amount;
 
-console.log("amount2 is" + amount2[0]);
+
+
+function tilesubtract(){
+    if (total_tiles !=0){
+    total_tiles = total_tiles -1;
+    console.log("total tiles is:" + total_tiles );
+    $("#message").html("<p>tiles remaining: " + total_tiles + "<p>");
+
+}
+return false;
+}
 
 
 //drag and drop stuff
 function Move(){
     $(".draggable").draggable({
+        revert: 'invalid',
         snap: ".droppable",
         snapMode: "inner"
     });
@@ -88,7 +107,12 @@ function Move(){
                     console.log("length after draging"+count);
                 }});
 
-            //give scoring the current letter we dropped
+            
+            
+
+
+/* credit to keeping score goes to Alex Nevers — http://weblab.cs.uml.edu/~anevers/part9/hw9.html from
+the piazza post*/
             Scoring($(ui.draggable).children("img").attr("alt"), $(this).children("img").attr("alt"));
             //checking for values
             //var scoreholder = $(ui.draggable).children("img").attr("alt"), $(this).children("img").attr("alt"));
@@ -135,15 +159,17 @@ function Deal() {
 
            console.log("letters is " + letters);
     //deal letter tiles to the player based on the string generated above
-    for (var j = 0; j < 7; j++)
+    for (var j = 0; j < 7; j++){
         $("#rack").append("<div class='draggable'>"
                 + "<img src='pics/Scrabble_Tile_"
                 + letters.charAt(j)
-                + ".jpg' width=50 height=50 alt='"
+                + ".jpg' width=60 height=60 alt='"
                 + letters.charAt(j)
                 + "'>"
                 + "</div>");
+tilesubtract();
 
+}
     //it is no longer the first deal
     FirstDeal = 1;
     Move();
@@ -159,6 +185,7 @@ function Deal() {
 /*Similar to the Deal function but the difference is that it does not reset the score and will cotinue tallying up
 this score until deal is called which resets score back to 0*/
 function Continue() {
+    score_2 = score;
 
     if (FirstDeal === 1)    //if its not the first deal, empty the rack before adding tiles
         $("#rack").html("");
@@ -173,21 +200,24 @@ function Continue() {
         letters += alphabet.charAt(Math.floor(Math.random() * alphabet.length)+1);
 
     //deal letter tiles to the player based on the string generated above
-    for (var j = 0; j < 7; j++)
+    for (var j = 0; j < 7; j++){
         $("#rack").append("<div class='draggable'>"
                 + "<img src='pics/Scrabble_Tile_"
                 + letters.charAt(j)
-                + ".jpg' width=50 height=50 alt='"
+                + ".jpg' width=60 height=60 alt='"
                 + letters.charAt(j)
                 + "'>"
                 + "</div>");
-
+tilesubtract();
+}
     //it is no longer the first deal
+    //Score = 0;
     FirstDeal = 1;
     Move();
+   // Score = Score + Score_2;
     //we have to rewrite the score on the page to zero
     $("#score").html("<p>Score: " + Score + "<p>");
-};/////////////////////////////////////////////////////////////////////////////
+};
 
 
 /*Counted the number of draggable IDs and kept count of this and whenever one was 
@@ -206,10 +236,11 @@ function Refill(){
         $("#rack").append("<div class='draggable'>"
                 + "<img src='pics/Scrabble_Tile_"
                 + letters.charAt(j)
-                + ".jpg' width=50 height=50 alt='"
+                + ".jpg' width=60 height=60 alt='"
                 + letters.charAt(j)
                 + "'>"
                 + "</div>");
+        tilesubtract();
 }
 
 }
