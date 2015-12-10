@@ -39,9 +39,8 @@
         <!--Created a div for the header to change the text or move as wanted in the css file -->
         <div id="header"><h1>91.461 Implementing a Bit of Scrabble with Drag-and-Drop</h1></div>
 
-        <div id="container">
-            <div id="content">
-                <div class="post">
+        
+            
                     <!-- board with tiles -->
 
                     <div id ="board">
@@ -56,6 +55,12 @@
                             <img src="pics/plain_square.png" alt="plain"></div>
                         <div class="droppable" id = "doubleletter">
                             <img src="pics/double_letter_square.png" alt="doubleletter"></div>
+                        <div class="droppable">
+                            <img src="pics/plain_square.png" alt="plain"></div>
+                        <div class="droppable">
+                            <img src="pics/plain_square.png" alt="plain"></div>
+                            <div class="droppable" id = "tripleword">
+                            <img src="pics/triple_word_square.png" alt="tripleword"></div>
                         <div class="droppable">
                             <img src="pics/plain_square.png" alt="plain"></div>
                         <div class="droppable">
@@ -76,30 +81,30 @@
                             <img src="pics/double_letter_square.png" alt="doubleletter"></div>
                         <div class="droppable">
                             <img src="pics/plain_square.png" alt="plain"></div>
-                        </div>
-
-
-
-                    </div>
-
-                    <br>
+                        <div class="droppable">
+                            <img src="pics/plain_square.png" alt="plain"></div>
+                        <div class="droppable" id = "tripleword">
+                            <img src="pics/triple_word_square.png" alt="tripleword"></div>
+                        <div class="droppable">
+                            <img src="pics/plain_square.png" alt="plain"></div>
+                         <br>
                    
                     
                     <!-- empty rack-- tiles get generated from document ready function -->
                     <div class="rack" id="rack">
                     </div>
 
-
-                              
-                    
-                    <div id="wordBox">
                     <br>
+
     <label>Word:</label>
     <label id="word"></label>
     <br>
+
     <!-- This is the score which is edited in the javascript -->
     <div id="score"></div>
-    <br>
+    <!--Will display the number of tiles remaining and the messages for checking if it is a word -->
+<div id="message"></div>
+
     <!--This submit button  is where we check if it is an actual word -->
     <button id="submit_button">Submit</button>
 
@@ -113,9 +118,7 @@ the tiles score,what hand we are on-->
     <!--This button is similar to that of the Reset button but it does not clear the current score and continues with it-->
     <button onClick="Continue()">Next Turn Keep Score</button>
 </div>
-<div id="message"></div
-                    
-                    
+                                       
                 </div>
             </div>
         </div>

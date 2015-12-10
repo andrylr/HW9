@@ -18,7 +18,7 @@ function submit(event)
 
     if(!dictionary[$("#word").text().toLowerCase()] == true)
     {
-        alert("Word is not in dict");
+        $("#message").html("<p>Not a word </p>");
     }
 }
 
