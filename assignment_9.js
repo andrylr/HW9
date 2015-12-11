@@ -217,6 +217,7 @@ tilesubtract();
    // Score = Score + Score_2;
     //we have to rewrite the score on the page to zero
     $("#score").html("<p>Score: " + Score + "<p>");
+    count =7;
 };
 
 
